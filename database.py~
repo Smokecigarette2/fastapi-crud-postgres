@@ -1,0 +1,19 @@
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()          #loading environment variables from .env file
+
+# Get database URL from .env
+DATABASE_URL = os.getenv("DATABASE_URL")             #getting environment variable from .env, and making it a normal variable
+
+# Create the database engine
+engine = create_engine(DATABASE_URL)              #this line is needed to create connection with database using engine. Engine is needed to create communication between FastAPI and database
+
+# Create a session factory
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) # deeply connected to postgre sql using our engine. It works like a car that directly works with database - starts and stops working with database when we need it to
+
+# Base class for models
+Base = declarative_base()   #is used to create a blueprint we're gonna for creating databases in python. We are gonna use it in different python files, this shit deeply works with sqlalchemy and postgre - when we are stopping it, sqlalchemy tells postgre to stop u know. Stopping it on time frees up space and makes everything run smoothes. Stopping it stops 
