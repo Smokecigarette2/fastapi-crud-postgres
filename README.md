@@ -1,54 +1,47 @@
 # FastAPI CRUD API with PostgreSQL
 
-This is a simple CRUD API built using FastAPI, SQLAlchemy, and PostgreSQL. It provides endpoints to create, read, update, and delete items from a PostgreSQL database. The project is organized into separate modules for database connection, models, schemas, and main application logic.
+This project is a simple CRUD (Create, Read, Update, Delete) API built using FastAPI, SQLAlchemy, and PostgreSQL.  
+It allows users to create, read, update, and delete user records stored in a PostgreSQL database.  
+The application supports environment configuration using a `.env` file and can be run locally or containerized using Docker.
 
-The application uses:
-- FastAPI for building the API
-- SQLAlchemy for ORM (Object Relational Mapping)
-- PostgreSQL as the database
-- Pydantic for data validation
-- Uvicorn as the ASGI server
+## Project Structure
+- `main.py`: Defines the FastAPI app and API endpoints.
+- `models.py`: Defines SQLAlchemy models for the database tables.
+- `schemas.py`: Defines Pydantic models for request and response validation.
+- `database.py`: Configures the PostgreSQL database connection.
+- `requirements.txt`: Lists the Python dependencies.
+- `.env`: Stores sensitive information like the database URL.
 
-The main files included are:
-- `main.py`: Defines API endpoints for CRUD operations.
-- `models.py`: Defines database models using SQLAlchemy.
-- `schemas.py`: Defines data schemas using Pydantic.
-- `database.py`: Configures the database connection and session.
-- `requirements.txt`: Lists the Python packages required to run the project.
-- `.env`: Stores environment variables like the database connection URL.
+## How to run locally
 
-To run the project:
-
-1. Clone the repository:
-    ```
-    git clone https://github.com/Smokecigarette2/fastapi-crud-postgres.git
-    cd fastapi-crud-postgres
-    ```
-
-2. Create and activate a virtual environment:
-    ```
-    python -m venv venv
-    venv\Scripts\activate    # For Windows
-    source venv/bin/activate # For Linux or MacOS
-    ```
-
-3. Install dependencies:
+1. Install the required dependencies:
     ```
     pip install -r requirements.txt
     ```
 
-4. Set up your `.env` file with your database connection string:
+2. Set up your PostgreSQL database and configure your `.env` file:
+
+    Example `.env` file:
     ```
     DATABASE_URL=postgresql://your_username:your_password@localhost:5432/your_database_name
     ```
 
-5. Run the application:
+3. Run the FastAPI application:
     ```
     uvicorn main:app --reload
     ```
 
-6. Access the API documentation:
-    - Swagger UI: http://127.0.0.1:8000/docs
-    - ReDoc: http://127.0.0.1:8000/redoc
+4. Access the API documentation:
+    - Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+    - ReDoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-This project was created by Smokecigarette2. It can be used for learning how to structure a basic FastAPI project with database support.
+## Technologies used
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Uvicorn
+- Pydantic
+- Docker (optional for containerization)
+
+## Author
+Created by [Smokecigarette2](https://github.com/Smokecigarette2)
